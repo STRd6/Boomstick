@@ -7,7 +7,6 @@
 #include <string>
 #include <sstream>
 #include <boost/weak_ptr.hpp>
-#include <OISJoyStick.h>
 #include "JSAPIAuto.h"
 #include "BrowserHost.h"
 #include "Xbox360ControllerJavaScriptSupport.h"
