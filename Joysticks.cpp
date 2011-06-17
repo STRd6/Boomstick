@@ -80,11 +80,12 @@ EventHandler handler;
 
 int processJoystickInputs()
 {
-	std::cout << "\n\n*** OIS Console Demo App is starting up... *** \n";
+	FBLOG_INFO("processJoystickInputs", "\n\n*** OIS Console Demo App is starting up... *** \n");
 	try
 	{
 		doStartup();
-		std::cout << "\nStartup done... Hit 'q' or ESC to exit.\n\n";
+		FBLOG_INFO("processJoystickInputs", "\nStartup done... ");
+    return 0;
 
 		while(appRunning)
 		{
@@ -149,10 +150,11 @@ void doStartup()
 
 	//Print debugging information
 	unsigned int v = g_InputManager->getVersionNumber();
-	std::cout << "OIS Version: " << (v>>16 ) << "." << ((v>>8) & 0x000000FF) << "." << (v & 0x000000FF)
-		<< "\nRelease Name: " << g_InputManager->getVersionName()
-		<< "\nManager: " << g_InputManager->inputSystemName()
-		<< "\nTotal JoySticks: " << g_InputManager->getNumberOfDevices(OISJoyStick);
+	FBLOG_INFO("doStartup()", boost::format("OIS Version: %1%.%2%.%3%") % (v>>16 ) % ((v>>8) & 0x000000FF) % (v & 0x000000FF));
+  // FBLOG_INFO("doStartup()", "\nRelease Name: %s", g_InputManager->getVersionName());
+		
+	//	<< "\nManager: " << g_InputManager->inputSystemName()
+	//	<< "\nTotal JoySticks: " << g_InputManager->getNumberOfDevices(OISJoyStick);
 
 	//List all devices
 	DeviceList list = g_InputManager->listFreeDevices();

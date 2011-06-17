@@ -8,6 +8,8 @@
 #include "OISJoyStick.h"
 #include "OISEvents.h"
 
+#include <boost/format.hpp>
+
 #include <iostream>
 #include <vector>
 #include <sstream>
