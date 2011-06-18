@@ -36,6 +36,10 @@ Xbox360ControllerJavaScriptSupportAPI::Xbox360ControllerJavaScriptSupportAPI(con
       &Xbox360ControllerJavaScriptSupportAPI::get_version
     ));
 
+    registerProperty("status", make_property(this,
+      &Xbox360ControllerJavaScriptSupportAPI::get_status
+    ));
+
     registerProperty("joysticks", make_property(this,
       &Xbox360ControllerJavaScriptSupportAPI::get_joysticks
     ));
@@ -93,6 +97,15 @@ std::string Xbox360ControllerJavaScriptSupportAPI::get_version()
     return "CURRENT_VERSION";
 }
 
+std::string Xbox360ControllerJavaScriptSupportAPI::get_status()
+{
+  if(m_joysticksHandler) {
+    return m_joysticksHandler->status;
+  } else {
+    return "No handler!";
+  }
+}
+
 // Method echo
 FB::variant Xbox360ControllerJavaScriptSupportAPI::echo(const FB::variant& msg)
 {
@@ -111,7 +124,7 @@ FB::VariantList Xbox360ControllerJavaScriptSupportAPI::get_joysticks()
     FB::VariantList result;
 
     if (m_joysticksHandler) {
-      std::vector<JoyStickState*> states = m_joysticksHandler->joyStickStates();
+      std::vector<JoyStickState> states = m_joysticksHandler->joyStickStates();
 
       for(int i = 0; i < states.size(); i++) {
         result.push_back(states[i].mAxes.size());

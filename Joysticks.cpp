@@ -97,6 +97,8 @@ std::vector<JoyStickState> JoysticksHandler::joyStickStates() {
 
 void JoysticksHandler::initialize()
 {
+  status = "uninitialized";
+
   try
   {
     OIS::ParamList pl;
@@ -120,8 +122,12 @@ void JoysticksHandler::initialize()
     // for( DeviceList::iterator i = list.begin(); i != list.end(); ++i )
     //   std::cout << "\n\tDevice: " << g_DeviceType[i->first] << " Vendor: " << i->second;
 
+    status = "input manager created";
+
     try
     {
+      status = "before initializing joysticks";
+
       //This demo uses at most 8 joysticks - use old way to create (i.e. disregard vendor)
       int numSticks = std::min(m_InputManager->getNumberOfDevices(OISJoyStick), MAX_JOYSTICKS);
       for( int i = 0; i < numSticks; ++i )
@@ -135,24 +141,20 @@ void JoysticksHandler::initialize()
           << "\n\tButtons: " << m_joys[i]->getNumberOfComponents(OIS_Button)
           << "\n\tVector3: " << m_joys[i]->getNumberOfComponents(OIS_Vector3);
       }
+
+      status = (boost::format("Initialized %d joysticks") % numSticks).str();
     }
     catch(OIS::Exception &ex)
     {
-      std::cout << "\nException raised on joystick creation: " << ex.eText << std::endl;
+      status = ex.eText;
     }
   }
   catch( const Exception &ex )
   {
-    #if defined OIS_WIN32_PLATFORM
-      MessageBox( NULL, ex.eText, "An exception has occurred!", MB_OK |
-        MB_ICONERROR | MB_TASKMODAL);
-    #else
-      std::cout << "\nOIS Exception Caught!\n" << "\t" << ex.eText << "[Line "
-      << ex.eLine << " in " << ex.eFile << "]\nExiting App";
-    #endif
+    status = ex.eText;
   }
   catch(std::exception &ex)
   {
-    std::cout << "Caught std::exception: what = " << ex.what() << std::endl;
+    status = ex.what();
   }
 }

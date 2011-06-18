@@ -35,6 +35,8 @@ public:
 
   void initialize();
 
+  std::string status;
+
 private:
   InputManager *m_InputManager;
   JoyStick* m_joys[MAX_JOYSTICKS];

@@ -30,6 +30,8 @@ public:
     // Read-only property ${PROPERTY.ident}
     std::string get_version();
 
+    std::string get_status();
+
     FB::VariantList get_joysticks();
 
     // Method echo
