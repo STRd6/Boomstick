@@ -124,10 +124,27 @@ FB::VariantList Xbox360ControllerJavaScriptSupportAPI::get_joysticks()
     FB::VariantList result;
 
     if (m_joysticksHandler) {
+      m_joysticksHandler->capture();
+
       std::vector<JoyStickState> states = m_joysticksHandler->joyStickStates();
 
       for(int i = 0; i < states.size(); i++) {
-        result.push_back(states[i].mAxes.size());
+        JoyStickState joystick = states[i];
+
+        // FB::VariantMap jsJoystickData;
+
+        FB::VariantList jsJoystickAxes;
+        for(int axis = 0; axis < joystick.mAxes.size(); axis++) {
+          jsJoystickAxes.push_back(joystick.mAxes[axis].abs);
+        }
+
+        FB::VariantList jsJoystickButtons;
+        for(int button = 0; button < joystick.mButtons.size(); button++) {
+          jsJoystickButtons.push_back(joystick.mButtons[button]);
+        }
+
+        result.push_back(jsJoystickAxes);
+        result.push_back(jsJoystickButtons);
       }
     }
 
