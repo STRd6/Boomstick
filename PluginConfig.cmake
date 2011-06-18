@@ -1,22 +1,22 @@
 #/**********************************************************\ 
 #
 # Auto-Generated Plugin Configuration file
-# for Xbox 360 Controller JavaScript Support
+# for Boomstick JavaScript Joystick Support
 #
 #\**********************************************************/
 
-set(PLUGIN_NAME "Xbox360ControllerJavaScriptSupport")
+set(PLUGIN_NAME "BoomstickJavaScriptJoystickSupport")
 set(PLUGIN_PREFIX "X3CJS")
 set(COMPANY_NAME "STRd6")
 
 # ActiveX constants:
-set(FBTYPELIB_NAME Xbox360ControllerJavaScriptSupportLib)
-set(FBTYPELIB_DESC "Xbox360ControllerJavaScriptSupport 1.0 Type Library")
-set(IFBControl_DESC "Xbox360ControllerJavaScriptSupport Control Interface")
-set(FBControl_DESC "Xbox360ControllerJavaScriptSupport Control Class")
-set(IFBComJavascriptObject_DESC "Xbox360ControllerJavaScriptSupport IComJavascriptObject Interface")
-set(FBComJavascriptObject_DESC "Xbox360ControllerJavaScriptSupport ComJavascriptObject Class")
-set(IFBComEventSource_DESC "Xbox360ControllerJavaScriptSupport IFBComEventSource Interface")
+set(FBTYPELIB_NAME BoomstickJavaScriptJoystickSupportLib)
+set(FBTYPELIB_DESC "BoomstickJavaScriptJoystickSupport 1.0 Type Library")
+set(IFBControl_DESC "BoomstickJavaScriptJoystickSupport Control Interface")
+set(FBControl_DESC "BoomstickJavaScriptJoystickSupport Control Class")
+set(IFBComJavascriptObject_DESC "BoomstickJavaScriptJoystickSupport IComJavascriptObject Interface")
+set(FBComJavascriptObject_DESC "BoomstickJavaScriptJoystickSupport ComJavascriptObject Class")
+set(IFBComEventSource_DESC "BoomstickJavaScriptJoystickSupport IFBComEventSource Interface")
 set(AXVERSION_NUM "1")
 
 # NOTE: THESE GUIDS *MUST* BE UNIQUE TO YOUR PLUGIN/ACTIVEX CONTROL!  YES, ALL OF THEM!
@@ -28,19 +28,19 @@ set(FBComJavascriptObject_GUID e89c707b-9d1b-5201-9784-2125f59c4bbb)
 set(IFBComEventSource_GUID b320c6a2-3b97-5d2b-b432-061e7d4c1c51)
 
 # these are the pieces that are relevant to using it from Javascript
-set(ACTIVEX_PROGID "STRd6.Xbox360ControllerJavaScriptSupport")
-set(MOZILLA_PLUGINID "strd6.com/Xbox360ControllerJavaScriptSupport")
+set(ACTIVEX_PROGID "STRd6.BoomstickJavaScriptJoystickSupport")
+set(MOZILLA_PLUGINID "strd6.com/BoomstickJavaScriptJoystickSupport")
 
 # strings
 set(FBSTRING_CompanyName "STRd6")
-set(FBSTRING_FileDescription "Provides support to JavaScript for handling Xbox 360 controllers")
-set(FBSTRING_PLUGIN_VERSION "1.0.0.0")
+set(FBSTRING_FileDescription "Provides support to JavaScript for handling up to eight joysticks.")
+set(FBSTRING_PLUGIN_VERSION "0.0.1.0")
 set(FBSTRING_LegalCopyright "Copyright 2011 STRd6")
 set(FBSTRING_PluginFileName "np${PLUGIN_NAME}.dll")
-set(FBSTRING_ProductName "Xbox 360 Controller JavaScript Support")
+set(FBSTRING_ProductName "Boomstick JavaScript Joystick Support")
 set(FBSTRING_FileExtents "")
-set(FBSTRING_PluginName "Xbox 360 Controller JavaScript Support")
-set(FBSTRING_MIMEType "application/x-xbox360controllerjavascriptsupport")
+set(FBSTRING_PluginName "Boomstick JavaScript Joystick Support")
+set(FBSTRING_MIMEType "application/x-boomstickjavascriptjoysticksupport")
 
 # Uncomment this next line if you're not planning on your plugin doing
 # any drawing:
