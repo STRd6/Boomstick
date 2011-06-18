@@ -29,6 +29,8 @@ public:
     // Read-only property ${PROPERTY.ident}
     std::string get_version();
 
+    FB::VariantList get_joysticks();
+
     // Method echo
     FB::variant echo(const FB::variant& msg);
     

@@ -15,6 +15,3 @@
 #include <sstream>
 
 const int MAX_JOYSTICKS = 8;
-
-void doStartup();
-void handleNonBufferedJoy( OIS::JoyStick* js );

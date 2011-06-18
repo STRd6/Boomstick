@@ -26,15 +26,19 @@ Xbox360ControllerJavaScriptSupportAPI::Xbox360ControllerJavaScriptSupportAPI(con
     registerMethod("testEvent", make_method(this, &Xbox360ControllerJavaScriptSupportAPI::testEvent));
 
     // Read-write property
-    registerProperty("testString",
-                     make_property(this,
-                        &Xbox360ControllerJavaScriptSupportAPI::get_testString,
-                        &Xbox360ControllerJavaScriptSupportAPI::set_testString));
+    registerProperty("testString", make_property(this,
+      &Xbox360ControllerJavaScriptSupportAPI::get_testString,
+      &Xbox360ControllerJavaScriptSupportAPI::set_testString
+    ));
 
     // Read-only property
-    registerProperty("version",
-                     make_property(this,
-                        &Xbox360ControllerJavaScriptSupportAPI::get_version));
+    registerProperty("version", make_property(this,
+      &Xbox360ControllerJavaScriptSupportAPI::get_version
+    ));
+
+    registerProperty("joysticks", make_property(this,
+      &Xbox360ControllerJavaScriptSupportAPI::get_joysticks
+    ));
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -96,3 +100,11 @@ void Xbox360ControllerJavaScriptSupportAPI::testEvent(const FB::variant& var)
     fire_fired(var, true, 1);
 }
 
+FB::VariantList Xbox360ControllerJavaScriptSupportAPI::get_joysticks()
+{
+    FB::VariantList result;
+
+    result.push_back(1);
+
+    return result;
+}

@@ -7,14 +7,15 @@ const char *g_DeviceType[6] = {
   "OISJoyStick", "OISTablet", "OISOther"
 };
 
-class EventHandler :
+class JoysticksHandler :
   public JoyStickListener
 {
 public:
-	EventHandler() {}
-	~EventHandler() {
-    if( m_InputManager )
+	JoysticksHandler() {}
+	~JoysticksHandler() {
+    if( m_InputManager ) {
       InputManager::destroyInputSystem(m_InputManager);
+    }
   }
 
 	bool buttonPressed( const JoyStickEvent &arg, int button ) {
