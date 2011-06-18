@@ -1,0 +1,9 @@
+Boomstick [Alpha] enables HTML5 and JavaScript games to access native JoySticks.
+
+By using FireBreath to handle cross-browser, multi-platform plugin generation
+and OIS to handle multi-platform joystick input, Boomstick gives JavaScript
+applications total access to joysticks and gamepads.
+
+Currently only tested on Linux with FF and Chrome, but with minor changes should
+work everywhere.
+
