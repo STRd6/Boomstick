@@ -11,10 +11,10 @@ set (CMAKE_BACKWARDS_COMPATIBILITY 2.6)
 Project(${PLUGIN_NAME})
 
 file (GLOB GENERAL RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
-    [^.]*.cpp
-    [^.]*.h
-    [^.]*.cmake
-    )
+  [^.]*.cpp
+  [^.]*.h
+  [^.]*.cmake
+)
 
 include_directories(
   ${PLUGIN_INCLUDE_DIRS}
@@ -23,19 +23,19 @@ include_directories(
 
 # Generated files are stored in ${GENERATED} by the project configuration
 SET_SOURCE_FILES_PROPERTIES(
-    ${GENERATED}
-    PROPERTIES
-        GENERATED 1
-    )
+  ${GENERATED}
+  PROPERTIES
+    GENERATED 1
+)
 
 SOURCE_GROUP(Generated FILES
-    ${GENERATED}
-    )
+  ${GENERATED}
+)
 
 SET( SOURCES
-    ${GENERAL}
-    ${GENERATED}
-    )
+  ${GENERAL}
+  ${GENERATED}
+)
 
 # This will include Win/projectDef.cmake, X11/projectDef.cmake, Mac/projectDef 
 # depending on the platform

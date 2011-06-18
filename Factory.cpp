@@ -1,12 +1,3 @@
-/**********************************************************\ 
- 
- Auto-generated Factory.cpp
- 
- This file contains the auto-generated factory methods 
- for the Boomstick project
- 
-\**********************************************************/
-
 #include "FactoryBase.h"
 #include "Boomstick.h"
 #include <boost/make_shared.hpp>
