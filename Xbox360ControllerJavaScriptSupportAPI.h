@@ -10,6 +10,7 @@
 #include "JSAPIAuto.h"
 #include "BrowserHost.h"
 #include "Xbox360ControllerJavaScriptSupport.h"
+#include "Joysticks.h"
 
 #ifndef H_Xbox360ControllerJavaScriptSupportAPI
 #define H_Xbox360ControllerJavaScriptSupportAPI
@@ -46,7 +47,8 @@ private:
     Xbox360ControllerJavaScriptSupportWeakPtr m_plugin;
     FB::BrowserHostPtr m_host;
 
-    std::string m_testString;
+    std::string m_testString;private:
+    JoysticksHandler *m_joysticksHandler;
 };
 
 #endif // H_Xbox360ControllerJavaScriptSupportAPI

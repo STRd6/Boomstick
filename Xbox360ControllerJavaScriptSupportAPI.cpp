@@ -39,6 +39,9 @@ Xbox360ControllerJavaScriptSupportAPI::Xbox360ControllerJavaScriptSupportAPI(con
     registerProperty("joysticks", make_property(this,
       &Xbox360ControllerJavaScriptSupportAPI::get_joysticks
     ));
+
+    m_joysticksHandler = new JoysticksHandler();
+    m_joysticksHandler->initialize();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -50,6 +53,9 @@ Xbox360ControllerJavaScriptSupportAPI::Xbox360ControllerJavaScriptSupportAPI(con
 ///////////////////////////////////////////////////////////////////////////////
 Xbox360ControllerJavaScriptSupportAPI::~Xbox360ControllerJavaScriptSupportAPI()
 {
+  if(m_joysticksHandler) {
+    delete m_joysticksHandler;
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -104,7 +110,13 @@ FB::VariantList Xbox360ControllerJavaScriptSupportAPI::get_joysticks()
 {
     FB::VariantList result;
 
-    result.push_back(1);
+    if (m_joysticksHandler) {
+      std::vector<JoyStickState*> states = m_joysticksHandler->joyStickStates();
+
+      for(int i = 0; i < states.size(); i++) {
+        result.push_back(states[i].mAxes.size());
+      }
+    }
 
     return result;
 }
