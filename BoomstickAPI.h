@@ -1,27 +1,21 @@
-/**********************************************************\
-
-  Auto-generated Xbox360ControllerJavaScriptSupportAPI.h
-
-\**********************************************************/
-
 #include <string>
 #include <sstream>
 #include <boost/weak_ptr.hpp>
 #include "JSAPIAuto.h"
 #include "BrowserHost.h"
-#include "Xbox360ControllerJavaScriptSupport.h"
+#include "Boomstick.h"
 #include "Joysticks.h"
 
-#ifndef H_Xbox360ControllerJavaScriptSupportAPI
-#define H_Xbox360ControllerJavaScriptSupportAPI
+#ifndef H_BoomstickAPI
+#define H_BoomstickAPI
 
-class Xbox360ControllerJavaScriptSupportAPI : public FB::JSAPIAuto
+class BoomstickAPI : public FB::JSAPIAuto
 {
 public:
-    Xbox360ControllerJavaScriptSupportAPI(const Xbox360ControllerJavaScriptSupportPtr& plugin, const FB::BrowserHostPtr& host);
-    virtual ~Xbox360ControllerJavaScriptSupportAPI();
+    BoomstickAPI(const BoomstickPtr& plugin, const FB::BrowserHostPtr& host);
+    virtual ~BoomstickAPI();
 
-    Xbox360ControllerJavaScriptSupportPtr getPlugin();
+    BoomstickPtr getPlugin();
 
     // Read/Write property ${PROPERTY.ident}
     std::string get_testString();
@@ -46,12 +40,12 @@ public:
     void testEvent(const FB::variant& s);
 
 private:
-    Xbox360ControllerJavaScriptSupportWeakPtr m_plugin;
+    BoomstickWeakPtr m_plugin;
     FB::BrowserHostPtr m_host;
 
     std::string m_testString;private:
     JoysticksHandler *m_joysticksHandler;
 };
 
-#endif // H_Xbox360ControllerJavaScriptSupportAPI
+#endif // H_BoomstickAPI
 

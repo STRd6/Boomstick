@@ -1,13 +1,5 @@
-/**********************************************************\
-
-  Auto-generated Xbox360ControllerJavaScriptSupport.h
-
-  This file contains the auto-generated main plugin object
-  implementation for the Xbox 360 Controller JavaScript Support project
-
-\**********************************************************/
-#ifndef H_Xbox360ControllerJavaScriptSupportPLUGIN
-#define H_Xbox360ControllerJavaScriptSupportPLUGIN
+#ifndef H_BoomstickPLUGIN
+#define H_BoomstickPLUGIN
 
 #include "PluginWindow.h"
 #include "PluginEvents/MouseEvents.h"
@@ -16,16 +8,16 @@
 #include "PluginCore.h"
 
 
-FB_FORWARD_PTR(Xbox360ControllerJavaScriptSupport)
-class Xbox360ControllerJavaScriptSupport : public FB::PluginCore
+FB_FORWARD_PTR(Boomstick)
+class Boomstick : public FB::PluginCore
 {
 public:
     static void StaticInitialize();
     static void StaticDeinitialize();
 
 public:
-    Xbox360ControllerJavaScriptSupport();
-    virtual ~Xbox360ControllerJavaScriptSupport();
+    Boomstick();
+    virtual ~Boomstick();
 
 public:
     void onPluginReady();

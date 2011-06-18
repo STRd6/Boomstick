@@ -3,12 +3,12 @@
  Auto-generated Factory.cpp
  
  This file contains the auto-generated factory methods 
- for the Xbox360ControllerJavaScriptSupport project
+ for the Boomstick project
  
 \**********************************************************/
 
 #include "FactoryBase.h"
-#include "Xbox360ControllerJavaScriptSupport.h"
+#include "Boomstick.h"
 #include <boost/make_shared.hpp>
 
 class PluginFactory : public FB::FactoryBase
@@ -22,7 +22,7 @@ public:
     ///////////////////////////////////////////////////////////////////////////////
     FB::PluginCorePtr createPlugin(const std::string& mimetype)
     {
-        return boost::make_shared<Xbox360ControllerJavaScriptSupport>();
+        return boost::make_shared<Boomstick>();
     }
     
     ///////////////////////////////////////////////////////////////////////////////
@@ -30,7 +30,7 @@ public:
     ///////////////////////////////////////////////////////////////////////////////
     void globalPluginInitialize()
     {
-        Xbox360ControllerJavaScriptSupport::StaticInitialize();
+        Boomstick::StaticInitialize();
     }
     
     ///////////////////////////////////////////////////////////////////////////////
@@ -38,7 +38,7 @@ public:
     ///////////////////////////////////////////////////////////////////////////////
     void globalPluginDeinitialize()
     {
-        Xbox360ControllerJavaScriptSupport::StaticDeinitialize();
+        Boomstick::StaticDeinitialize();
     }
 };
 
