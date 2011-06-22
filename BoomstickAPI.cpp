@@ -125,7 +125,7 @@ FB::VariantList BoomstickAPI::get_joysticks()
       for(int i = 0; i < states.size(); i++) {
         JoyStickState joystick = states[i];
 
-        // FB::VariantMap jsJoystickData;
+        FB::VariantMap jsJoystickData;
 
         FB::VariantList jsJoystickAxes;
         for(int axis = 0; axis < joystick.mAxes.size(); axis++) {
@@ -137,8 +137,10 @@ FB::VariantList BoomstickAPI::get_joysticks()
           jsJoystickButtons.push_back(joystick.mButtons[button]);
         }
 
-        result.push_back(jsJoystickAxes);
-        result.push_back(jsJoystickButtons);
+        jsJoystickData.insert(std::make_pair( std::string("axes"),  jsJoystickAxes));
+        jsJoystickData.insert(std::make_pair( std::string("buttons"),  jsJoystickButtons));
+
+        result.push_back(jsJoystickData);
       }
     }
 
