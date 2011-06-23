@@ -27,26 +27,6 @@ JoysticksHandler::~JoysticksHandler() {
   }
 }
 
-bool JoysticksHandler::buttonPressed( const JoyStickEvent &arg, int button ) {
-  return true;
-}
-
-bool JoysticksHandler::buttonReleased( const JoyStickEvent &arg, int button ) {
-  return true;
-}
-
-bool JoysticksHandler::axisMoved( const JoyStickEvent &arg, int axis ) {
-  return true;
-}
-
-bool JoysticksHandler::povMoved( const JoyStickEvent &arg, int pov ) {
-  return true;
-}
-
-bool JoysticksHandler::vector3Moved( const JoyStickEvent &arg, int index) {
-  return true;
-}
-
 void JoysticksHandler::capture() {
 #if defined WIN32
   MSG  msg;
@@ -106,7 +86,6 @@ void JoysticksHandler::initialize() {
 
       for( int i = 0; i < numSticks; ++i ) {
         m_joys[i] = (JoyStick*)m_InputManager->createInputObject( OISJoyStick, true );
-        m_joys[i]->setEventCallback( this );
       }
 
       status = (boost::format("Initialized %d joysticks") % numSticks).str();

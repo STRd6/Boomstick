@@ -16,18 +16,10 @@ using namespace OIS;
 
 const int MAX_JOYSTICKS = 8;
 
-class JoysticksHandler :
-  public JoyStickListener
-{
+class JoysticksHandler {
 public:
 	JoysticksHandler();
 	~JoysticksHandler();
-
-	bool buttonPressed( const JoyStickEvent &arg, int button );
-	bool buttonReleased( const JoyStickEvent &arg, int button );
-	bool axisMoved( const JoyStickEvent &arg, int axis );
-	bool povMoved( const JoyStickEvent &arg, int pov );
-	bool vector3Moved( const JoyStickEvent &arg, int index);
 
   void capture();
 
