@@ -122,18 +122,18 @@ FB::VariantList BoomstickAPI::get_joysticks()
 
       std::vector<JoyStickState> states = m_joysticksHandler->joyStickStates();
 
-      for(int i = 0; i < states.size(); i++) {
+      for(unsigned int i = 0; i < states.size(); i++) {
         JoyStickState joystick = states[i];
 
         FB::VariantMap jsJoystickData;
 
         FB::VariantList jsJoystickAxes;
-        for(int axis = 0; axis < joystick.mAxes.size(); axis++) {
+        for(unsigned int axis = 0; axis < joystick.mAxes.size(); axis++) {
           jsJoystickAxes.push_back(joystick.mAxes[axis].abs);
         }
 
         FB::VariantList jsJoystickButtons;
-        for(int button = 0; button < joystick.mButtons.size(); button++) {
+        for(unsigned int button = 0; button < joystick.mButtons.size(); button++) {
           jsJoystickButtons.push_back(joystick.mButtons[button]);
         }
 
