@@ -14,6 +14,11 @@ const char *g_DeviceType[6] = {
 
 JoysticksHandler::JoysticksHandler() {
   status = "uninitialized";
+
+  // Zero joysticks array
+  for (int i = 0; i < MAX_JOYSTICKS; i++) {
+    m_joys[i] = 0;
+  }
 }
 
 JoysticksHandler::~JoysticksHandler() {
