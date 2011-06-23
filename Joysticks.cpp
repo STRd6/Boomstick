@@ -94,7 +94,11 @@ void JoysticksHandler::initialize() {
       status = "before initializing joysticks";
 
       //This demo uses at most 8 joysticks - use old way to create (i.e. disregard vendor)
-      int numSticks = min(m_InputManager->getNumberOfDevices(OISJoyStick), MAX_JOYSTICKS);
+      int numSticks = m_InputManager->getNumberOfDevices(OISJoyStick);
+      if (numSticks > MAX_JOYSTICKS) {
+        numSticks = MAX_JOYSTICKS;
+      }
+
       for( int i = 0; i < numSticks; ++i ) {
         m_joys[i] = (JoyStick*)m_InputManager->createInputObject( OISJoyStick, true );
         m_joys[i]->setEventCallback( this );
