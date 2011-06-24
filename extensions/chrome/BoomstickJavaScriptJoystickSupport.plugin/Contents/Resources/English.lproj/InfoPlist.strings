@@ -1,0 +1,4 @@
+/* Localized versions of Info.plist keys */
+
+CFBundleName = "BoomstickJavaScriptJoystickSupport.plugin";
+NSHumanReadableCopyright = "Copyright 2011 STRd6";
