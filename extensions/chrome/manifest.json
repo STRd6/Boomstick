@@ -4,7 +4,7 @@
   "description": "JavaScript joystick handling for HTML5 games.",
   "plugins": [
     { "path": "npBoomstickJavaScriptJoystickSupport.dll", "public": true },
+    { "path": "BoomstickJavaScriptJoystickSupport.plugin", "public": true },
     { "path": "npBoomstickJavaScriptJoystickSupport.so", "public": true }
   ]
 }
-
