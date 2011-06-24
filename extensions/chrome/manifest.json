@@ -1,7 +1,14 @@
 {
   "name": "Boomstick",
   "version": "0.1.0",
-  "description": "JavaScript joystick handling for HTML5 games.",
+  "description": "JavaScript gamepad and joystick handling for HTML5 games.",
+  "icons": {
+    "128": "icons/128.png",
+    "16": "icons/16.png",
+    "48": "icons/32.png",
+    "48": "icons/48.png",
+    "96": "icons/96.png"
+  },
   "plugins": [
     { "path": "npBoomstickJavaScriptJoystickSupport.dll", "public": true },
     { "path": "BoomstickJavaScriptJoystickSupport.plugin", "public": true },
