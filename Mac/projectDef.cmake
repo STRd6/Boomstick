@@ -32,7 +32,13 @@ set(LOCALIZED "Mac/bundle_template/Localized.r")
 
 add_mac_plugin(${PROJECT_NAME} ${PLIST} ${STRINGS} ${LOCALIZED} SOURCES)
 
+find_library(CARBON NAMES Carbon)
+find_library(IOKIT NAMES IOKit)
+
 # add library dependencies here; leave ${PLUGIN_INTERNAL_DEPS} there unless you know what you're doing!
 target_link_libraries(${PROJECT_NAME}
-    ${PLUGIN_INTERNAL_DEPS}
-    )
+  ${PLUGIN_INTERNAL_DEPS}
+  ${CARBON}
+  ${IOKIT}
+  "${CMAKE_CURRENT_SOURCE_DIR}/lib/libOIS.a"
+)
