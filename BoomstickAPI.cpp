@@ -132,9 +132,12 @@ FB::VariantList BoomstickAPI::get_joysticks()
           jsJoystickAxes.push_back(joystick.mAxes[axis].abs);
         }
 
-        FB::VariantList jsJoystickButtons;
+        int jsJoystickButtons = 0;
+        int buttonBit = 1;
+
         for(unsigned int button = 0; button < joystick.mButtons.size(); button++) {
-          jsJoystickButtons.push_back(joystick.mButtons[button]);
+          jsJoystickButtons += joystick.mButtons[button] * buttonBit;
+          buttonBit = buttonBit << 1;
         }
 
         jsJoystickData.insert(std::make_pair( std::string("axes"),  jsJoystickAxes));
