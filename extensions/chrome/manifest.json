@@ -12,6 +12,7 @@
   "plugins": [
     { "path": "npBoomstickJavaScriptJoystickSupport.dll", "public": true },
     { "path": "BoomstickJavaScriptJoystickSupport.plugin", "public": true },
+    { "path": "npBoomstickJavaScriptJoystickSupport_32.so", "public": true },
     { "path": "npBoomstickJavaScriptJoystickSupport.so", "public": true }
   ]
 }
