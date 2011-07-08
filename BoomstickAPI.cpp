@@ -38,6 +38,8 @@ BoomstickAPI::BoomstickAPI(const BoomstickPtr& plugin, const FB::BrowserHostPtr&
       &BoomstickAPI::get_joysticks
     ));
 
+    maxAxes = 2;
+
     m_joysticksHandler = new JoysticksHandler();
     m_joysticksHandler->initialize();
 }
@@ -122,20 +124,27 @@ FB::VariantList BoomstickAPI::get_joysticks()
 
       std::vector<JoyStickState> states = m_joysticksHandler->joyStickStates();
 
-      for(unsigned int i = 0; i < states.size(); i++) {
+      int size = states.size();
+      for(unsigned int i = 0; i < size; i++) {
         JoyStickState joystick = states[i];
 
         FB::VariantMap jsJoystickData;
 
         FB::VariantList jsJoystickAxes;
-        for(unsigned int axis = 0; axis < joystick.mAxes.size(); axis++) {
+        int numAxes = joystick.mAxes.size();
+        if(numAxes > maxAxes) {
+          numAxes = maxAxes;
+        }
+
+        for(unsigned int axis = 0; axis < numAxes; axis++) {
           jsJoystickAxes.push_back(joystick.mAxes[axis].abs);
         }
 
         int jsJoystickButtons = 0;
         int buttonBit = 1;
 
-        for(unsigned int button = 0; button < joystick.mButtons.size(); button++) {
+        int numButtons = joystick.mButtons.size();
+        for(unsigned int button = 0; button < numButtons; button++) {
           jsJoystickButtons += joystick.mButtons[button] * buttonBit;
           buttonBit = buttonBit << 1;
         }

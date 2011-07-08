@@ -45,6 +45,7 @@ private:
 
     std::string m_testString;private:
     JoysticksHandler *m_joysticksHandler;
+    int maxAxes;
 };
 
 #endif // H_BoomstickAPI
