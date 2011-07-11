@@ -3,6 +3,7 @@
 #include "DOM/Document.h"
 
 #include "BoomstickAPI.h"
+#include <json/json.h>
 
 ///////////////////////////////////////////////////////////////////////////////
 /// @fn BoomstickAPI::BoomstickAPI(const BoomstickPtr& plugin, const FB::BrowserHostPtr host)
@@ -16,8 +17,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 BoomstickAPI::BoomstickAPI(const BoomstickPtr& plugin, const FB::BrowserHostPtr& host) : m_plugin(plugin), m_host(host)
 {
-    registerMethod("echo",      make_method(this, &BoomstickAPI::echo));
-    registerMethod("testEvent", make_method(this, &BoomstickAPI::testEvent));
+    registerMethod("echo", make_method(this,
+      &BoomstickAPI::echo
+    ));
+    registerMethod("testEvent", make_method(this,
+      &BoomstickAPI::testEvent
+    ));
 
     // Read-write property
     registerProperty("testString", make_property(this,
@@ -36,6 +41,10 @@ BoomstickAPI::BoomstickAPI(const BoomstickPtr& plugin, const FB::BrowserHostPtr&
 
     registerProperty("joysticks", make_property(this,
       &BoomstickAPI::get_joysticks
+    ));
+
+    registerMethod("joysticksJSON", make_method(this,
+      &BoomstickAPI::joysticksJSON
     ));
 
     maxAxes = 2;
@@ -157,4 +166,49 @@ FB::VariantList BoomstickAPI::get_joysticks()
     }
 
     return result;
+}
+
+std::string BoomstickAPI::joysticksJSON()
+{
+    Json::Value result(Json::arrayValue);
+
+    if (m_joysticksHandler) {
+      m_joysticksHandler->capture();
+
+      std::vector<JoyStickState> states = m_joysticksHandler->joyStickStates();
+
+      int size = states.size();
+      for(unsigned int i = 0; i < size; i++) {
+        JoyStickState joystick = states[i];
+
+        Json::Value jsJoystickData(Json::objectValue);
+
+        Json::Value jsJoystickAxes(Json::arrayValue);
+        int numAxes = joystick.mAxes.size();
+        if(numAxes > maxAxes) {
+          numAxes = maxAxes;
+        }
+
+        for(unsigned int axis = 0; axis < numAxes; axis++) {
+          jsJoystickAxes.append(joystick.mAxes[axis].abs);
+        }
+
+        int jsJoystickButtons = 0;
+        int buttonBit = 1;
+
+        int numButtons = joystick.mButtons.size();
+        for(unsigned int button = 0; button < numButtons; button++) {
+          jsJoystickButtons += joystick.mButtons[button] * buttonBit;
+          buttonBit = buttonBit << 1;
+        }
+
+        jsJoystickData["axes"] = jsJoystickAxes;
+        jsJoystickData["buttons"] = jsJoystickButtons;
+
+        result.append(jsJoystickData);
+      }
+    }
+
+    Json::FastWriter writer;
+    return writer.write( result );
 }

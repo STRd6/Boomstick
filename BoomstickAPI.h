@@ -27,6 +27,7 @@ public:
     std::string get_status();
 
     FB::VariantList get_joysticks();
+    std::string joysticksJSON();
 
     // Method echo
     FB::variant echo(const FB::variant& msg);
