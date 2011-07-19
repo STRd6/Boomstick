@@ -30,6 +30,12 @@ BoomstickAPI::BoomstickAPI(const BoomstickPtr& plugin, const FB::BrowserHostPtr&
       &BoomstickAPI::set_testString
     ));
 
+    // Read-write property
+    registerProperty("maxAxes", make_property(this,
+      &BoomstickAPI::get_maxAxes,
+      &BoomstickAPI::set_maxAxes
+    ));
+
     // Read-only property
     registerProperty("version", make_property(this,
       &BoomstickAPI::get_version
@@ -94,6 +100,15 @@ std::string BoomstickAPI::get_testString()
 void BoomstickAPI::set_testString(const std::string& val)
 {
     m_testString = val;
+}
+
+int BoomstickAPI::get_maxAxes()
+{
+    return maxAxes;
+}
+void BoomstickAPI::set_maxAxes(const int val)
+{
+    maxAxes = val;
 }
 
 // Read-only property version

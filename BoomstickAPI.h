@@ -21,6 +21,9 @@ public:
     std::string get_testString();
     void set_testString(const std::string& val);
 
+    int get_maxAxes();
+    void set_maxAxes(const int val);
+
     // Read-only property ${PROPERTY.ident}
     std::string get_version();
 
