@@ -53,7 +53,7 @@ BoomstickAPI::BoomstickAPI(const BoomstickPtr& plugin, const FB::BrowserHostPtr&
       &BoomstickAPI::joysticksJSON
     ));
 
-    maxAxes = 2;
+    maxAxes = 6;
 
     m_joysticksHandler = new JoysticksHandler();
     m_joysticksHandler->initialize();
