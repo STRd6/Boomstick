@@ -6,6 +6,14 @@ applications total access to joysticks and gamepads.
 
 Works on all platforms.
 
+Windows
+[Windows Installer][1]
+
+OS X, Linux
+[Chrome Extension][2]
+TODO: Firefox Extension
+
+
 Sample HTML
 
     <object id="plugin" type="application/x-boomstickjavascriptjoysticksupport" width="0" height="0"></object>
@@ -20,8 +28,7 @@ Calling .joysticksJSON() returns a JSON string containing the current state of a
       {"axes":[0,0,0,0,0],"buttons":0,"pov":0},
       {"axes":[0,0],"buttons":0,"pov":0},
       ...
-    ]
-    '
+    ]'
     
     // Read thusly
     joysticks = JSON.parse(plugin.joysticksJSON())
@@ -50,3 +57,7 @@ All joysticks currently return one POV property regardless of how many POV input
      DOWN =   16
     RIGHT =  256
      LEFT = 4096
+
+
+[1]: https://github.com/downloads/STRd6/Boomstick/windows_install.zip "Windows Installer"
+[2]: https://chrome.google.com/webstore/detail/ibghgpidpbpnhdgmncpbhioaohmgkigo
