@@ -219,6 +219,7 @@ std::string BoomstickAPI::joysticksJSON()
 
         jsJoystickData["axes"] = jsJoystickAxes;
         jsJoystickData["buttons"] = jsJoystickButtons;
+        jsJoystickData["pov"] = joystick.mPOV[0].direction;
 
         result.append(jsJoystickData);
       }
