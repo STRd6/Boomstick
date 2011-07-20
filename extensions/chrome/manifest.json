@@ -1,6 +1,6 @@
 {
   "name": "Boomstick",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "JavaScript gamepad and joystick handling for HTML5 games.",
   "icons": {
     "128": "icons/128.png",
