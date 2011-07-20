@@ -149,7 +149,7 @@ FB::VariantList BoomstickAPI::get_joysticks()
       std::vector<JoyStickState> states = m_joysticksHandler->joyStickStates();
 
       int size = states.size();
-      for(unsigned int i = 0; i < size; i++) {
+      for(int i = 0; i < size; i++) {
         JoyStickState joystick = states[i];
 
         FB::VariantMap jsJoystickData;
@@ -160,7 +160,7 @@ FB::VariantList BoomstickAPI::get_joysticks()
           numAxes = maxAxes;
         }
 
-        for(unsigned int axis = 0; axis < numAxes; axis++) {
+        for(int axis = 0; axis < numAxes; axis++) {
           jsJoystickAxes.push_back(joystick.mAxes[axis].abs);
         }
 
@@ -168,7 +168,7 @@ FB::VariantList BoomstickAPI::get_joysticks()
         int buttonBit = 1;
 
         int numButtons = joystick.mButtons.size();
-        for(unsigned int button = 0; button < numButtons; button++) {
+        for(int button = 0; button < numButtons; button++) {
           jsJoystickButtons += joystick.mButtons[button] * buttonBit;
           buttonBit = buttonBit << 1;
         }
@@ -193,7 +193,7 @@ std::string BoomstickAPI::joysticksJSON()
       std::vector<JoyStickState> states = m_joysticksHandler->joyStickStates();
 
       int size = states.size();
-      for(unsigned int i = 0; i < size; i++) {
+      for(int i = 0; i < size; i++) {
         JoyStickState joystick = states[i];
 
         Json::Value jsJoystickData(Json::objectValue);
@@ -204,7 +204,7 @@ std::string BoomstickAPI::joysticksJSON()
           numAxes = maxAxes;
         }
 
-        for(unsigned int axis = 0; axis < numAxes; axis++) {
+        for(int axis = 0; axis < numAxes; axis++) {
           jsJoystickAxes.append(joystick.mAxes[axis].abs);
         }
 
@@ -212,7 +212,7 @@ std::string BoomstickAPI::joysticksJSON()
         int buttonBit = 1;
 
         int numButtons = joystick.mButtons.size();
-        for(unsigned int button = 0; button < numButtons; button++) {
+        for(int button = 0; button < numButtons; button++) {
           jsJoystickButtons += joystick.mButtons[button] * buttonBit;
           buttonBit = buttonBit << 1;
         }
