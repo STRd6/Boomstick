@@ -1,4 +1,4 @@
-Boomstick [Alpha] enables HTML5 and JavaScript games to access native JoySticks.
+Boomstick [Alpha] enables HTML5 and JavaScript games to access native joysticks.
 
 By using FireBreath to handle cross-browser, multi-platform plugin generation
 and OIS to handle multi-platform joystick input, Boomstick gives JavaScript
